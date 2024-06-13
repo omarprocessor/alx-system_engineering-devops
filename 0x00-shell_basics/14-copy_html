@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -name "*.html" -exec sh -c 'cp -u "$0" ../ && ls -l ../"$0"' {} \;
+rsync -av --ignore-existing --update --include="*.html" --exclude="*" "$(pwd)/" "$(dirname "$(pwd)")/"
