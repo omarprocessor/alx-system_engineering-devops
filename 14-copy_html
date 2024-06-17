@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -maxdepth 1 -name "*.html" -newermt "$(date -r ../ 2>/dev/null || date -d '1970-01-01')" -exec cp {} ../ \; -o -exec test ! -e ../{} \; -exec cp {} ../ \;
