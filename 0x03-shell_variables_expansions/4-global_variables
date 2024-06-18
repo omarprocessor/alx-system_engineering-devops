@@ -1,2 +1,2 @@
 #!/bin/bash
-printenv | awk -F= '{print $1}'
+printenv
