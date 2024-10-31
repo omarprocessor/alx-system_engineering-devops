@@ -3,7 +3,7 @@
 0. Create a SSH RSA key pair
 mandatory
 Read for this task:
-
+#
 Linux and Mac OS users
 Windows users
 man: ssh-keygen
