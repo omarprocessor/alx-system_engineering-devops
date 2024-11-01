@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Trap SIGTERM and print "I am invincible!!!"
-trap 'echo "I am invincible!!!"' 15
+trap 'echo "I am invincible!!!"' SIGTERM
+
+# Infinite loop with a 2-second delay
 while true; do
-    echo "to infinity and beyond"
+    echo "To infinity and beyond"
     sleep 2
 done
