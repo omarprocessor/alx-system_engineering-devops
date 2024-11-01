@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Find the PID of the 7-highlander process
+# Get the PID of the 7-highlander process
 pid=$(pgrep -f 7-highlander)
 
-# Send signal 9 (SIGKILL) if PID is found
+# Check if the process is running and kill it
 if [ -n "$pid" ]; then
-    echo "9" > /proc/"$pid"/sig
+    kill -9 "$pid"
 else
     echo "Process 7-highlander not running."
 fi
