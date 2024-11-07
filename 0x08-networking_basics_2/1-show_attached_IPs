@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Use 'ifconfig' to list network interfaces, then filter for inet (IPv4) addresses.
+# We use 'grep' to find 'inet' addresses and 'awk' to extract the IP addresses.
+ifconfig | grep 'inet ' | awk '{print $2}'
