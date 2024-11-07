@@ -1,0 +1,4 @@
+#!/bin/bash
+# Displays listening TCP and UDP ports along with PID and program name
+
+netstat -l
