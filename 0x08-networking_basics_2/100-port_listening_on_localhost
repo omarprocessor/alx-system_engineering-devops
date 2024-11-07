@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Start a simple listener on port 98 on localhost
+# 'nc' (Netcat) listens for connections on port 98 and prints incoming data
+echo "Starting my script."
+nc -l 127.0.0.2 98
