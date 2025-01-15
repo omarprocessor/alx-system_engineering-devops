@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Installs and configures Nginx on Ubuntu to serve a page with "Hello World!"
+
+# Update and install Nginx
+apt-get update -y
+apt-get install nginx -y
+
+# Configure Nginx to display "Hello World!" on the root page
+echo "Hello World!" > /var/www/html/index.html
+
+# Restart Nginx without using systemctl
+service nginx restart
