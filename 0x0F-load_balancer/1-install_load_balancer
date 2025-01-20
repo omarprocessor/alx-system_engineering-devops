@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Configures a new Ubuntu machine with HAProxy
+
+# Install required dependencies
+apt-get install --no-install-recommends software-properties-common -y
+
+# Add HAProxy PPA repository
+add-apt-repository ppa:vbernat/haproxy-2.8 -y
+
+# Update package lists
+apt-get update
+
+# Install HAProxy
+apt-get install haproxy=2.8.* -y
+
+# Append the HAProxy configuration to the config file
+echo "frontend Omar-web-front
+        bind *:80
+        mode http
+        default_backend web-backend
+
+backend web-backend
+        balance roundrobin
+        server 806472-web-01 34.232.76.97:80 check
+        server 806472-web-02 52.91.133.31:80 check
+" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+# Reload or restart HAProxy to apply the changes
+sudo systemctl restart haproxy
+
+# Ensure HAProxy service is running
+sudo systemctl status haproxy
