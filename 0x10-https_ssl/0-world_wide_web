@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Script to audit subdomains of a given domain
+check_subdomain() {
+	dig "$2.$1" | awk '/ANSWER SECTION:/ {getline; print "The subdomain " $1 "is a " $4 "record and points to " $5}'
+}
+
+if [ $# -eq 2 ]; then
+	check_subdomain "$1" "$2"
+else
+	for sub in www lb-01 web-01 web-02; do
+		check_subdomain "$1" "$sub"
+	done
+fi
