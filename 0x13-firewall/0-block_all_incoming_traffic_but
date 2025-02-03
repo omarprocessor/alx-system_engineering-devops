@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Install ufw
+sudo apt update && sudo apt install -y ufw
+
+# Reset UFW to default settings
+sudo ufw reset
+
+# Set default policies: deny all incoming, allow all outgoing
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow necessary incoming connections
+sudo ufw allow 22/tcp  # SSH
+sudo ufw allow 80/tcp  # HTTP
+sudo ufw allow 443/tcp # HTTPS
+
+# Enable UFW
+sudo ufw enable
