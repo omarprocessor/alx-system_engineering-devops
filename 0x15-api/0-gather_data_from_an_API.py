@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+Script that fetches an employee's TODO list progress using a REST API.
+"""
+
 import requests
 import sys
 
@@ -19,6 +23,8 @@ if __name__ == "__main__":
     done_tasks = [task.get("title") for task in todos if task.get("completed")]
     total_tasks = len(todos)
 
-    print(f"Employee {employee_name} is done with tasks({len(done_tasks)}/{total_tasks}):")
+    print(f"Employee {employee_name} is done with tasks"
+          f"({len(done_tasks)}/{total_tasks}):")
+
     for task in done_tasks:
         print(f"\t {task}")
