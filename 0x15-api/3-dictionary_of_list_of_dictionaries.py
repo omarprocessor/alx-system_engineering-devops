@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This script fetches user tasks from an API
 and exports them to a JSON file."""
 
